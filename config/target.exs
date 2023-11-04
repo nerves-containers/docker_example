@@ -17,7 +17,10 @@ config :shoehorn, init: [:nerves_runtime, :nerves_pack]
 # configuring erlinit.
 
 # Advance the system clock on devices without real-time clocks.
-config :nerves, :erlinit, update_clock: true
+config :nerves, :erlinit,
+  update_clock: true,
+  # erlexec needs the SHELL variable
+  env: "SHELL=/bin/sh"
 
 # Configure the device for SSH IEx prompt access and firmware updates
 #
@@ -42,6 +45,11 @@ if keys == [],
 
 config :nerves_ssh,
   authorized_keys: Enum.map(keys, &File.read!/1)
+
+config :erlexec,
+  root: true,
+  user: "root",
+  limit_users: ["root"]
 
 # Configure the network using vintage_net
 #
