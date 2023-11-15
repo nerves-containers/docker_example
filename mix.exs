@@ -34,7 +34,7 @@ defmodule DockerExample.MixProject do
   def application do
     [
       mod: {DockerExample.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :inets]
     ]
   end
 
@@ -63,36 +63,36 @@ defmodule DockerExample.MixProject do
       # bumps to Nerves systems. Since these include Linux kernel and Erlang
       # version updates, please review their release notes in case
       # changes to your application are needed.
-      {:nerves_containers_rpi,
-       github: "nerves-containers/nerves_containers_rpi",
-       branch: "development",
-       runtime: false,
-       targets: :rpi},
-      {:nerves_containers_rpi3,
-       github: "nerves-containers/nerves_containers_rpi3",
-       branch: "development",
-       runtime: false,
-       targets: :rpi3},
-      {:nerves_containers_rpi3_64,
-       github: "nerves-containers/nerves_containers_rpi3",
-       branch: "development-64",
-       runtime: false,
-       targets: :rpi3_64},
-      {:nerves_containers_rpi4,
-       github: "nerves-containers/nerves_containers_rpi4",
-       branch: "development",
-       runtime: false,
-       targets: :rpi4},
+      # {:nerves_containers_rpi,
+      #  github: "nerves-containers/nerves_containers_rpi",
+      #  branch: "development",
+      #  runtime: false,
+      #  targets: :rpi},
+      # {:nerves_containers_rpi3,
+      #  github: "nerves-containers/nerves_containers_rpi3",
+      #  branch: "development",
+      #  runtime: false,
+      #  targets: :rpi3},
+      # {:nerves_containers_rpi3_64,
+      #  github: "nerves-containers/nerves_containers_rpi3",
+      #  branch: "development-64",
+      #  runtime: false,
+      #  targets: :rpi3_64},
+      # {:nerves_containers_rpi4,
+      #  github: "nerves-containers/nerves_containers_rpi4",
+      #  branch: "development",
+      #  runtime: false,
+      #  targets: :rpi4},
       {:nerves_containers_x86_64,
        github: "nerves-containers/nerves_containers_x86_64",
        branch: "development",
        runtime: false,
-       targets: :x86_64},
-      {:nerves_containers_x86_64_uefi,
-       github: "nerves-containers/nerves_containers_x86_64_uefi",
-       branch: "development",
-       runtime: false,
-       targets: :x86_64_efi}
+       targets: :x86_64}
+      # {:nerves_containers_x86_64_uefi,
+      #  github: "nerves-containers/nerves_containers_x86_64_uefi",
+      #  branch: "development",
+      #  runtime: false,
+      #  targets: :x86_64_efi}
     ]
   end
 

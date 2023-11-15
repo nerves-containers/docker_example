@@ -12,8 +12,10 @@ defmodule DockerExample.Application do
     opts = [strategy: :one_for_one, name: DockerExample.Supervisor]
 
     if target() != :host do
-      # create directory for the balena-engine, symlinked to /etc
-      File.mkdir_p("/data/etc/balena-engine")
+      # create directories for podman
+      File.mkdir_p("/root/podman-cni")
+      File.mkdir_p("/root/podman-tmp")
+      File.mkdir_p("/root/podman-storage")
     end
 
     children =
