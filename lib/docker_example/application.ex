@@ -15,7 +15,12 @@ defmodule DockerExample.Application do
       # create directories for podman
       File.mkdir_p("/root/podman-cni")
       File.mkdir_p("/root/podman-tmp")
+      File.mkdir_p("/root/podman-tmp/net.d")
       File.mkdir_p("/root/podman-storage")
+
+      # TODO: find a better solution
+      File.cp!("/etc/cni/net.d/87-podman-bridge.conflist", "/root/podman-tmp/net.d/87-podman-bridge.conflist")
+      System.cmd("mount", ["--bind", "/root/podman-tmp/net.d", "/etc/cni/net.d"])
     end
 
     children =

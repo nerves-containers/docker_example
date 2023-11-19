@@ -84,10 +84,9 @@ defmodule DockerExample.MixProject do
       #  runtime: false,
       #  targets: :rpi4},
       {:nerves_containers_x86_64,
-       github: "nerves-containers/nerves_containers_x86_64",
-       branch: "development",
+       path: "../nerves_containers_x86_64",
        runtime: false,
-       targets: :x86_64}
+       targets: :x86_64, nerves: [compile: true]}
       # {:nerves_containers_x86_64_uefi,
       #  github: "nerves-containers/nerves_containers_x86_64_uefi",
       #  branch: "development",
