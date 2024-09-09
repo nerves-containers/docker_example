@@ -41,7 +41,7 @@ defmodule DockerExample.ContainerManager do
          "balena-engine-daemon",
          [
            "--data-root",
-           "/data/balena",
+           "/root/balena",
            "--experimental"
          ],
          []
@@ -72,7 +72,7 @@ defmodule DockerExample.ContainerManager do
         )
         |> IO.inspect()
 
-      compose(["up", "-d"])
+      compose(["up", "-d", "--build"])
     else
       Logger.info("Container Manager: Waiting for Balena Engine...")
       Process.send_after(self(), :waiting_for_balena_engine, 1000)
